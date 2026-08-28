@@ -16,32 +16,31 @@
 <!-- Add an OG image later: drop a 1200x630 JPG at /og.jpg and uncomment.
 <meta property="og:image" content="https://ceaztheday.co/og.jpg"> -->
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23171FD5'/><text x='50' y='50' dy='.35em' text-anchor='middle' font-size='62' font-family='Georgia,serif' fill='%23FDF7EA'>C</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23171FD5'/><text x='50' y='50' dy='.35em' text-anchor='middle' font-size='58' font-weight='bold' font-family='Helvetica,Arial,sans-serif' fill='%23FDF7EA'>C</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
     --bg:        #FDF7EA;
     --ink:       #171FD5;
-    --ink-deep:  #0d1276;
-    --ink-soft:  #6a6f9c;
-    --rule:      #d9d3c4;
+    --body:      #1b1e3d;
+    --ink-soft:  #55598a;
+    --rule:      #ddd6c6;
     --accent:    #171FD5;
-    --serif: "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
-    --sans:  "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
       --bg:       #0a0c2e;
       --ink:      #FDF7EA;
-      --ink-deep: #FDF7EA;
-      --ink-soft: #9298c9;
-      --rule:     #262a5e;
-      --accent:   #7d84ff;
+      --body:     #e8e4d8;
+      --ink-soft: #9ba1cf;
+      --rule:     #292d63;
+      --accent:   #8a91ff;
     }
   }
 
@@ -55,86 +54,56 @@
     display: flex;
     flex-direction: column;
     background: var(--bg);
-    color: var(--ink-deep);
+    color: var(--body);
     font-family: var(--sans);
     font-size: 16px;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    padding: clamp(1.5rem, 5vw, 4rem);
+    padding: clamp(1.5rem, 5vw, 3.5rem);
   }
 
-  /* ---- shared eyebrow / small-caps label type ---- */
   .label {
     font-size: 0.6875rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink-soft);
   }
 
-  /* ---- masthead ---- */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  /* Swap the wordmark for the real lockup:
-     <img class="lockup" src="lockup.svg" alt="Ceaztheday"> */
-  .wordmark {
-    font-family: var(--serif);
-    font-size: 1.125rem;
-    letter-spacing: 0.01em;
-    text-transform: none;
-    color: var(--ink);
-  }
-
-  .lockup { display: block; height: 26px; width: auto; }
-
-  /* ---- main block ---- */
+  /* ---- main column ---- */
   main {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 52rem;
-    padding: clamp(2.5rem, 9vh, 6rem) 0;
+    max-width: 46rem;
+    padding: clamp(2rem, 7vh, 4.5rem) 0;
   }
 
-  h1 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(3rem, 11.5vw, 7.5rem);
-    line-height: 0.92;
-    letter-spacing: -0.02em;
-    margin: 0;
-    color: var(--ink);
-  }
+  /* ---- the lockup carries name, role, and city ---- */
+  h1 { margin: 1.25rem 0 0; line-height: 0; }
 
-  h1 em { font-style: normal; color: var(--accent); }
-
-  .role {
-    margin: 1.5rem 0 0;
-    padding-top: 1.125rem;
-    border-top: 1px solid var(--rule);
+  h1 img {
+    display: block;
+    width: clamp(17rem, 62vw, 34rem);
+    height: auto;
   }
 
   .bio {
-    margin: 1.5rem 0 0;
-    max-width: 40rem;
+    margin: 2.5rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    max-width: 38rem;
     font-size: clamp(1rem, 1.9vw, 1.1875rem);
     line-height: 1.6;
-    color: var(--ink-deep);
     text-wrap: pretty;
   }
 
-  .bio + .bio { margin-top: 1rem; color: var(--ink-soft); }
+  .bio.secondary { margin-top: 1.75rem; padding-top: 0; border-top: 0; color: var(--ink-soft); }
 
   /* ---- client roster ---- */
   .clients {
-    margin: 2rem 0 0;
+    margin: 1.75rem 0 0;
     padding: 1.125rem 0;
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
@@ -144,7 +113,13 @@
     list-style: none;
   }
 
-  .clients li { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); font-weight: 500; }
+  .clients li {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
 
   /* ---- links ---- */
   .links {
@@ -162,27 +137,25 @@
     gap: 0.6em;
     color: var(--ink);
     text-decoration: none;
-    font-size: clamp(1.0625rem, 2.2vw, 1.3125rem);
-    padding-bottom: 2px;
+    font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
+    font-weight: 500;
+    padding-bottom: 3px;
   }
 
   a.link::after {
     content: "";
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 1px;
+    left: 0; right: 0; bottom: 0;
+    height: 1.5px;
     background: var(--accent);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  a.link:hover, a.link:focus-visible { color: var(--accent); }
   a.link:hover::after, a.link:focus-visible::after { transform: scaleX(1); }
 
-  a.link .arrow { color: var(--accent); transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+  a.link .arrow { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
   a.link:hover .arrow, a.link:focus-visible .arrow { transform: translateX(4px); }
 
   a.link:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 2px; }
@@ -210,12 +183,12 @@
   }
 
   .d1 { animation-delay: 0.05s; }
-  .d2 { animation-delay: 0.16s; }
-  .d3 { animation-delay: 0.26s; }
-  .d4 { animation-delay: 0.34s; }
-  .d5 { animation-delay: 0.42s; }
-  .d6 { animation-delay: 0.50s; }
-  .d7 { animation-delay: 0.58s; }
+  .d2 { animation-delay: 0.14s; }
+  .d3 { animation-delay: 0.28s; }
+  .d4 { animation-delay: 0.36s; }
+  .d5 { animation-delay: 0.44s; }
+  .d6 { animation-delay: 0.52s; }
+  .d7 { animation-delay: 0.60s; }
 
   @keyframes rise { to { opacity: 1; transform: none; } }
 
@@ -227,22 +200,23 @@
 </head>
 <body>
 
-  <header class="rise d1">
-    <span class="wordmark">Ceaztheday</span>
-    <span class="label">Portfolio &mdash; in progress</span>
-  </header>
-
   <main>
-    <h1 class="rise d2">Cesar<br>Santos<em>.</em></h1>
+    <p class="label rise d1">Portfolio &mdash; in progress</p>
 
-    <p class="label role rise d3">Creative Director &nbsp;/&nbsp; Visual Designer &nbsp;/&nbsp; 20 Years</p>
+    <h1 class="rise d2">
+      <picture>
+        <source srcset="lockup-white.svg" media="(prefers-color-scheme: dark)">
+        <img src="lockup-blue.svg" width="1041" height="546"
+             alt="Cesar Santos — Creative Director and Visual Designer, Washington, DC">
+      </picture>
+    </h1>
 
-    <p class="bio rise d4">
+    <p class="bio rise d3">
       Hands-on creative director and visual designer with 20 years shaping brand,
       campaign, and digital experiences for entertainment and consumer brands.
     </p>
 
-    <ul class="clients rise d5">
+    <ul class="clients rise d4">
       <li>YouTube</li>
       <li>Coca-Cola</li>
       <li>Hard Rock</li>
@@ -251,14 +225,14 @@
       <li>Breeze Airways</li>
     </ul>
 
-    <p class="bio rise d6">
+    <p class="bio secondary rise d5">
       I design the work myself &mdash; visual identities, promotional and marketing
       assets, e-commerce experiences, and motion-led concepts, with generative AI
       built into my daily workflow for concepting, exploration, and asset iteration.
     </p>
 
     <div class="links">
-      <a class="link rise d7" href="https://cargocollective.com/cesarwsantos">
+      <a class="link rise d6" href="https://cargocollective.com/cesarwsantos">
         <span>Selected work</span><span class="arrow" aria-hidden="true">&rarr;</span>
       </a>
       <a class="link rise d7" href="mailto:cesarwsantos@gmail.com">
